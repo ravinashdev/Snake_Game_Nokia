@@ -10,6 +10,7 @@ class Snake:
         self.snake = []
         self.create_snake()
         self.head = self.snake[0]
+    # Internal method to create the snake
     def create_snake(self):
         for position in STARTING_POSITIONS:
             segment = Turtle()
@@ -18,12 +19,14 @@ class Snake:
             segment.penup()
             segment.goto(position)
             self.snake.append(segment)
+    # Method to keep the snake moving by having each square follow the other
     def auto_move(self):
         for piece_num in range(len(self.snake) - 1, 0, -1):
             new_x = self.snake[piece_num - 1].xcor()
             new_y = self.snake[piece_num - 1].ycor()
             self.snake[piece_num].goto(new_x, new_y)
         self.head.forward(DEFAULT_MOVE_DISTANCE)
+    # Directional methods with logic to block it from turning on its own head
     def turn_east(self):
         if self.head.heading() !=WEST:
             self.head.setheading(EAST)

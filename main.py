@@ -11,7 +11,7 @@ screen.tracer(0)
 
 # Initialize Snake Object
 snake = Snake()
-# # Listen for key events
+# # Listen for key events to invoke methods to change direction
 screen.listen()
 screen.onkey(snake.turn_east, "Right")
 screen.onkey(snake.turn_north, "Up")
