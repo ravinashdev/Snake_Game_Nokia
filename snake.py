@@ -27,19 +27,19 @@ class Snake:
     def turn_east(self):
         if self.head.heading() !=WEST:
             self.head.setheading(EAST)
-            print("turn east")
+            # print("turn east")
     def turn_north(self):
         if self.head.heading() != SOUTH:
             self.head.setheading(NORTH)
-            print("turn north")
+            # print("turn north")
     def turn_west(self):
         if self.head.heading() != EAST:
             self.head.setheading(WEST)
-            print("turn west")
+            # print("turn west")
     def turn_south(self):
         if self.head.heading() != NORTH:
             self.head.setheading(SOUTH)
-            print("turn south")
+            # print("turn south")
     # Method to extend the snake body
     def extend(self):
         self.add_segment_body(self.snake[-1].position())
@@ -53,11 +53,12 @@ class Snake:
         self.snake.append(segment)
     # Method to return a boolean if the snakes head hits any part of its own body based on a list of positions
     def hit_its_own_body(self):
+        result = False
         segment_positions_list = []
+        # print(self.head.position())
         for segment in self.snake:
-            if segment == self.head:
-                pass
-            else:
-                segment_positions_list.append(segment.position())
-        result = self.head.position() in segment_positions_list
+            segment_positions_list.append(segment.position())
+        if self.head.position() in segment_positions_list[1:]:
+            result = True
+            # print(result)
         return result

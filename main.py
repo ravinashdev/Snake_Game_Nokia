@@ -32,9 +32,10 @@ while game_on:
     snake.auto_move()
     # Write the score_board.write_score() method with the initial conditions
     score_board.write_score()
+    # Detect Collision with own body
+    snake.hit_its_own_body()
     # Detect the collision of snake object with food object by measuring its pixel distance
     if snake.head.distance(food) <= 15:
-        print("Got it")
         # When collision is detected:
         # Create a new instance of the food object food.new_food() and give it a random position
         food.new_food()
@@ -51,5 +52,4 @@ while game_on:
     elif abs(round(snake.head.xcor(),1)) >= 300 or abs(round(snake.head.ycor(),1)) >= 300 or snake.hit_its_own_body():
         game_on = False
         score_board.game_over()
-
 screen.exitonclick()
