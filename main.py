@@ -38,13 +38,17 @@ while game_on:
         # When collision is detected:
         # Create a new instance of the food object food.new_food() and give it a random position
         food.new_food()
+        # Add a new segment of the body every time snake eats some food
+        snake.extend()
         # Update the score_board object methods score_board.increase_score() and score_board.write_score() so they can display on the screen object
         score_board.increase_score()
         score_board.write_score()
     # Detect collision with wall at either the x min or max coordinate position of screen edge
     # OR
     # Detect collision with wall at either the y min or max coordinate position of screen edge
-    elif abs(round(snake.head.xcor(),1)) >= 300 or abs(round(snake.head.ycor(),1)) >= 300:
+    # OR
+    # Detect collision with any part of its own body
+    elif abs(round(snake.head.xcor(),1)) >= 300 or abs(round(snake.head.ycor(),1)) >= 300 or snake.hit_its_own_body():
         game_on = False
         score_board.game_over()
 

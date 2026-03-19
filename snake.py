@@ -1,4 +1,5 @@
 from turtle import Turtle
+
 STARTING_POSITIONS = [(0,0), (-20,0), (-40, 0)]
 DEFAULT_MOVE_DISTANCE = 20
 EAST = 0
@@ -14,12 +15,7 @@ class Snake:
     # Internal method to create the snake
     def create_snake(self):
         for position in STARTING_POSITIONS:
-            segment = Turtle()
-            segment.color("white")
-            segment.shape("square")
-            segment.penup()
-            segment.goto(position)
-            self.snake.append(segment)
+            self.add_segment_body(position)
     # Method to keep the snake moving by having each square follow the other
     def auto_move(self):
         for piece_num in range(len(self.snake) - 1, 0, -1):
@@ -44,3 +40,24 @@ class Snake:
         if self.head.heading() != NORTH:
             self.head.setheading(SOUTH)
             print("turn south")
+    # Method to extend the snake body
+    def extend(self):
+        self.add_segment_body(self.snake[-1].position())
+    # Internal method to add_segment_body to the tail or last piece of the snake
+    def add_segment_body(self, position):
+        segment = Turtle()
+        segment.color("white")
+        segment.shape("square")
+        segment.penup()
+        segment.goto(position)
+        self.snake.append(segment)
+    # Method to return a boolean if the snakes head hits any part of its own body based on a list of positions
+    def hit_its_own_body(self):
+        segment_positions_list = []
+        for segment in self.snake:
+            if segment == self.head:
+                pass
+            else:
+                segment_positions_list.append(segment.position())
+        result = self.head.position() in segment_positions_list
+        return result
