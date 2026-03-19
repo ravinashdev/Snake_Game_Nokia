@@ -42,6 +42,7 @@ while game_on:
         score_board.increase_score()
         score_board.write_score()
     # Detect collision with wall at either the x min or max coordinate position of screen edge
+    # OR
     # Detect collision with wall at either the y min or max coordinate position of screen edge
     elif abs(round(snake.head.xcor(),1)) >= 300 or abs(round(snake.head.ycor(),1)) >= 300:
         game_on = False

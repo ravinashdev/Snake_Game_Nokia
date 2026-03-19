@@ -1,4 +1,7 @@
 from turtle import Turtle
+MOVE = False
+ALIGN = "center"
+FONT = ("Courier", 16, "bold")
 
 class ScoreBoard(Turtle):
     def __init__(self):
@@ -12,7 +15,7 @@ class ScoreBoard(Turtle):
     def write_score(self):
         # Create a message f string as write method can't use an f string
         message = f"Score Board: {self.score}"
-        self.write(message, move=False, align="center", font=("Courier", 16, "bold"))
+        self.write(message, MOVE, ALIGN, FONT)
     def increase_score(self):
         # Increase the score everytime a collision with Food class is detected in main.py
         self.score += 1
