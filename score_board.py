@@ -21,3 +21,7 @@ class ScoreBoard(Turtle):
         self.score += 1
         # Clear the screen so new score can get written when it's incremented by 1'
         self.clear()
+    def game_over(self):
+        self.clear()
+        message = f"Game Over! Your final score is: {self.score}"
+        self.write(message, MOVE, ALIGN, FONT)
