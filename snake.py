@@ -6,6 +6,7 @@ NORTH = 90
 WEST = 180
 SOUTH = 270
 class Snake:
+    # Initialize the Snake object
     def __init__(self):
         self.snake = []
         self.create_snake()
