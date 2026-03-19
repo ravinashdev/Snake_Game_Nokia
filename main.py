@@ -41,20 +41,9 @@ while game_on:
         # Update the score_board object methods score_board.increase_score() and score_board.write_score() so they can display on the screen object
         score_board.increase_score()
         score_board.write_score()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    # Detect collision with wall at either the x min or max coordinate position of screen edge
+    # Detect collision with wall at either the y min or max coordinate position of screen edge
+    elif abs(round(snake.head.xcor(),1)) >= 300 or abs(round(snake.head.ycor(),1)) >= 300:
+        game_on = False
 
 screen.exitonclick()

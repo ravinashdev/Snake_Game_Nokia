@@ -1,8 +1,5 @@
 from turtle import Turtle
 
-from main import score_board
-
-
 class ScoreBoard(Turtle):
     def __init__(self):
         super().__init__()
