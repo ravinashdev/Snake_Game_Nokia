@@ -50,6 +50,9 @@ while game_on:
     # OR
     # Detect collision with any part of its own body
     elif abs(round(snake.head.xcor(),1)) >= 300 or abs(round(snake.head.ycor(),1)) >= 300 or snake.hit_its_own_body():
-        game_on = False
-        score_board.game_over()
+        # game_on = False
+        # score_board.game_over()
+        score_board.reset_score()
+        snake.reset_snake()
+
 screen.exitonclick()

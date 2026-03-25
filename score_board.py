@@ -12,16 +12,22 @@ class ScoreBoard(Turtle):
         self.penup()
         self.setposition(0,270)
         self.hideturtle()
+        self.high_score = 0
     def write_score(self):
+        # Clear the screen so new score can get written when it's incremented by 1'
+        self.clear()
         # Create a message f string as write method can't use an f string
-        message = f"Score Board: {self.score}"
+        message = f"Score Board: {self.score} High Score: {self.high_score}"
         self.write(message, MOVE, ALIGN, FONT)
     def increase_score(self):
         # Increase the score everytime a collision with Food class is detected in main.py
         self.score += 1
-        # Clear the screen so new score can get written when it's incremented by 1'
-        self.clear()
-    def game_over(self):
-        message = f"Game Over!"
-        self.setposition(0,0)
-        self.write(message, MOVE, ALIGN, font=("Courier", 32, "bold"))
+    def reset_score(self):
+        # Log the high score if the player scores higher than their previous high score
+        if self.score > self.high_score:
+            self.high_score = self.score
+        self.score = 0
+    # def game_over(self):
+    #     message = f"Game Over!"
+    #     self.setposition(0,0)
+    #     self.write(message, MOVE, ALIGN, font=("Courier", 32, "bold"))

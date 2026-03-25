@@ -62,3 +62,10 @@ class Snake:
             result = True
             # print(result)
         return result
+    # Method to set the snake back to its initial conditions when the current session has ended
+    def reset_snake(self):
+        for segment in self.snake:
+            segment.color("black")
+        self.snake = []
+        self.create_snake()
+        self.head = self.snake[0]
