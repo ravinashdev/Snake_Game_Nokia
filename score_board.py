@@ -34,7 +34,7 @@ class ScoreBoard(Turtle):
     #     message = f"Game Over!"
     #     self.setposition(0,0)
     #     self.write(message, MOVE, ALIGN, font=("Courier", 32, "bold"))
-    # Method to retrieve the high_score from file
+    # Method to read the high_score from file
     def retrieve_high_score(self):
         with open("high_score.txt", mode="r") as file:
             high_score = int(file.read())
